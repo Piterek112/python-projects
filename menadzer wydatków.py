@@ -5,36 +5,36 @@ import json
 class ExpenseManagerApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Expense Manager")
+        self.root.title("Menadżer wydatków")
 
         self.expenses = []
         self.load_expenses()
 
-        self.label = tk.Label(root, text="Expense Manager", font=("Helvetica", 16))
+        self.label = tk.Label(root, text="Menadżer wydatków", font=("Helvetica", 16))
         self.label.pack(pady=10)
 
         self.expense_frame = tk.Frame(root)
         self.expense_frame.pack()
 
-        self.expense_label = tk.Label(self.expense_frame, text="Expense:")
+        self.expense_label = tk.Label(self.expense_frame, text="Wydatki:")
         self.expense_label.grid(row=0, column=0, padx=5, pady=5)
 
         self.expense_entry = tk.Entry(self.expense_frame, width=40)
         self.expense_entry.grid(row=0, column=1, padx=5, pady=5)
 
-        self.amount_label = tk.Label(self.expense_frame, text="Amount:")
+        self.amount_label = tk.Label(self.expense_frame, text="Ilosc:")
         self.amount_label.grid(row=1, column=0, padx=5, pady=5)
 
         self.amount_entry = tk.Entry(self.expense_frame, width=15)
         self.amount_entry.grid(row=1, column=1, padx=5, pady=5)
 
-        self.add_button = tk.Button(root, text="Add Expense", command=self.add_expense)
+        self.add_button = tk.Button(root, text="Dodaj wydatek", command=self.add_expense)
         self.add_button.pack(pady=5)
 
         self.expense_listbox = tk.Listbox(root, width=50)
         self.expense_listbox.pack(pady=10)
 
-        self.delete_button = tk.Button(root, text="Delete Expense", command=self.delete_expense)
+        self.delete_button = tk.Button(root, text="Usuń wydatek", command=self.delete_expense)
         self.delete_button.pack(pady=5)
 
         self.load_expenses_to_listbox()
@@ -43,7 +43,7 @@ class ExpenseManagerApp:
         expense = self.expense_entry.get()
         amount = self.amount_entry.get()
         if expense and amount:
-            self.expenses.append({"expense": expense, "amount": amount})
+            self.expenses.append({"Wydatek": expense, "Ilosc": amount})
             self.save_expenses()
             self.expense_entry.delete(0, tk.END)
             self.amount_entry.delete(0, tk.END)
